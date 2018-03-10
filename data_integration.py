@@ -47,15 +47,17 @@ print(final_joined.show())
 final_joined = final_joined.withColumnRenamed('COMPUSTAT IDENTIFIER', 'compustat_identifier').withColumnRenamed('AAER DATABASE IDENTIFIER', 'aaer_db_identifier')
 
 drop_list = ['COMPUSTAT IDENTIFIER', 'AAER DATABASE IDENTIFIER']
-final_joined = final_joined.select([column for column in list(set(final_joined.columns)) if column not in drop_list])
 
-
-print(final_joined.show())
-
-print(final_joined.schema.names)
-
-print(set(final_joined.schema.names))
-
-# Writing the joinned csv to hdfs
-final_joined.coalesce(1).write.csv('integrated_dataset')
-final_joined.write.parquet('/user/vcs/annual_integrated_dataset_parquet')
+final_joined = final_joined.drop(dgls.FYR)
+# final_joined = final_joined.select([column for column in list(set(final_joined.columns)) if column not in drop_list])
+#
+#
+# print(final_joined.show())
+#
+# print(final_joined.schema.names)
+#
+# print(set(final_joined.schema.names))
+#
+# # Writing the joinned csv to hdfs
+# final_joined.coalesce(1).write.csv('integrated_dataset')
+# final_joined.write.parquet('/user/vcs/annual_integrated_dataset_parquet')
