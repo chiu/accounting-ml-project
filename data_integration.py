@@ -66,7 +66,7 @@ except:
     pass
 
 try:
-    final_joined.write.parquet('/user/vcs/annual_integrated_dataset_parquet')
+    final_joined.write.parquet('/user/vcs/annual_integrated_dataset.parquet')
 except:
     pass
 
