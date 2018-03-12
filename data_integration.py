@@ -4,14 +4,14 @@ from pyspark.sql.functions import isnan, when, count, col
 spark = SparkSession.builder.appName('733').getOrCreate()
 sc = spark.sparkContext
 
-annual_compustat = spark.read.csv('/user/vcs/annual_compustat.csv', header=True)
-balance_sheet = spark.read.csv('/user/vcs/balance_sheet.csv', header=True)
-income_stat = spark.read.csv('/user/vcs/income_statements.csv', header=True)
-offbalance_sheet = spark.read.csv('/user/vcs/offbalance_sheet_items.csv', header=True)
-risk_cap = spark.read.csv('/user/vcs/risk_based_capital.csv', header=True)
-ibes_predictions = spark.read.csv('/user/vcs/sample_ibes.csv', header=True)
-dgls = spark.read.csv('/user/vcs/dgls_integrated.csv', header=True)
-ibes_complete = spark.read.csv('/user/vcs/ibes.csv', header=True)
+annual_compustat = spark.read.csv('/user/vcs/annual_compustat.csv', header=True, inferSchema=True)
+balance_sheet = spark.read.csv('/user/vcs/balance_sheet.csv', header=True, inferSchema=True)
+income_stat = spark.read.csv('/user/vcs/income_statements.csv', header=True, inferSchema=True)
+offbalance_sheet = spark.read.csv('/user/vcs/offbalance_sheet_items.csv', header=True, inferSchema=True)
+risk_cap = spark.read.csv('/user/vcs/risk_based_capital.csv', header=True, inferSchema=True)
+ibes_predictions = spark.read.csv('/user/vcs/sample_ibes.csv', header=True, inferSchema=True)
+dgls = spark.read.csv('/user/vcs/dgls_integrated.csv', header=True, inferSchema=True)
+ibes_complete = spark.read.csv('/user/vcs/ibes.csv', header=True, inferSchema=True)
 
 # Number of total records
 print(annual_compustat.count())
@@ -61,12 +61,12 @@ print(set(final_joined.schema.names))
 
 # Writing the joinned csv to hdfs
 try:
-    final_joined.coalesce(1).write.csv('/user/vcs/integrated_dataset')
+    final_joined.coalesce(1).write.csv('/user/vcs/integrated_dataset_v2')
 except:
     pass
 
 try:
-    final_joined.write.parquet('annual_integrated_dataset.parquet')
+    final_joined.write.parquet('annual_integrated_dataset_v2.parquet')
 except:
     pass
 

@@ -24,6 +24,6 @@ sc = spark.sparkContext
 
 
 
-integrated_df = spark.read.parquet('/user/vcs/annual_integrated_dataset.parquet')
+integrated_df = spark.read.parquet('/user/vcs/annual_integrated_dataset_v2.parquet')
 print(integrated_df.head())
 print('v4 encoded')
