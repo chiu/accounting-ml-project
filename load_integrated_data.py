@@ -24,5 +24,6 @@ encoded.head()
 
 
 
-
+integrated_df = spark.read.parquet('annual_integrated_dataset.parquet')
+integrated_df.head()
 print('v3 encoded')
