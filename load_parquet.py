@@ -51,3 +51,8 @@ for string_column in string_columns:
 
 df.head()
 
+try:
+    df.write.parquet('annual_integrated_dataset_v2_1hot.parquet')
+except:
+    pass
+
