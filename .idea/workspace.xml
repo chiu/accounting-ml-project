@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3f3d8d1-12fd-4729-abea-dbf2de172003" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nn_integrated.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/load_parquet.py" afterPath="$PROJECT_DIR$/load_parquet.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +17,8 @@
       <file leaf-file-name="data_integration.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_integration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="70" selection-end-column="8" />
+            <state relative-caret-position="-198">
+              <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -60,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="load_parquet.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="load_parquet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/load_parquet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="657">
-              <caret line="55" column="9" lean-forward="true" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
+            <state relative-caret-position="585">
+              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -72,11 +72,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="nn_integrated.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nn_integrated.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-147">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="misstatement_detection-Copy15.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/misstatement_detection-Copy15.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1365">
-              <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="98" selection-end-column="77" />
+            <state relative-caret-position="822">
+              <caret line="331" column="0" lean-forward="true" selection-start-line="198" selection-start-column="0" selection-end-line="331" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -201,6 +211,11 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -586,38 +601,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/misstatement_detection-Copy15.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="98" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/load_compustat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/experimental/one_hot_encoding_experiment.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_integration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="70" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -632,13 +621,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/load_parquet.py">
+    <entry file="file://$PROJECT_DIR$/load_compustat.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="657">
-          <caret line="55" column="9" lean-forward="true" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
+        <state relative-caret-position="0">
+          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_integration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/misstatement_detection-Copy15.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="822">
+          <caret line="331" column="0" lean-forward="true" selection-start-line="198" selection-start-column="0" selection-end-line="331" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/load_parquet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn_integrated.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-147">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
