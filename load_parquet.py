@@ -41,13 +41,17 @@ string_columns = [k for (k,v) in permuted_annual_dtypes if v == 'string']
 df = integrated_df.cache()
 
 for string_column in string_columns:
-    stringIndexer = StringIndexer(inputCol=string_column, outputCol="categoryIndex")
-    model = stringIndexer.fit(df)
-    indexed = model.transform(df)
+    try:
+        stringIndexer = StringIndexer(inputCol=string_column, outputCol="categoryIndex")
+        model = stringIndexer.fit(df)
+        indexed = model.transform(df)
 
-    encoder = OneHotEncoder(inputCol="categoryIndex", outputCol= string_column+"Vec")
-    encoded = encoder.transform(indexed)
-    df = encoded
+        encoder = OneHotEncoder(inputCol="categoryIndex", outputCol= string_column+"Vec")
+        encoded = encoder.transform(indexed)
+        df = encoded
+
+    except:
+        print(string_column)
 
 df.head()
 
