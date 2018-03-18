@@ -43,30 +43,27 @@ great_columns = [df.columns[i] for i in good_columns]
 df = df.select(*great_columns)
 
 
+from pyspark.ml.feature import Imputer
+
+imputer = Imputer(
+    inputCols=df.columns,
+    outputCols=["{}_imputed".format(c) for c in df.columns]
+)
+df = imputer.fit(df).transform(df)
+
+df = df.drop(*great_columns)
+
+df.head()
+print('v2 great')
 
 
-# from pyspark.ml.feature import Imputer
-#
-# imputer = Imputer(
-#     inputCols=df.columns,
-#     outputCols=["{}_imputed".format(c) for c in df.columns]
-# )
-# imputer.fit(df).transform(df)
-#
-# df.head()
-# print('v2 great')
+assembler = VectorAssembler(
+    inputCols=df.columns,
+    outputCol="features")
 
+output = assembler.transform(df)
 
-
-
-
-# assembler = VectorAssembler(
-#     inputCols=integrated_df.columns,
-#     outputCol="features")
-#
-# output = assembler.transform(df)
-#
-# output.head()
+output.head()
 
 # from pyspark.sql import SparkSession
 # from pyspark.sql.functions import isnan, when, count, col
