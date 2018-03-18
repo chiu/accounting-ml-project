@@ -5,7 +5,7 @@
 
 
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import isnan, when, count, col
+
 spark = SparkSession.builder.appName('733').getOrCreate()
 sc = spark.sparkContext
 
@@ -31,22 +31,8 @@ with open('annual_compustat_null_count.csv', 'r') as f:
   reader = csv.reader(f)
   your_list = list(reader)
 
-
-
-# In[5]:
-
-
 null_count_list = your_list[0]
-
-
-# In[6]:
-
-
 null_count_list = [float(x) for x in null_count_list]
-
-
-# In[7]:
-
 
 good_columns = []
 for i in range(0, len(null_count_list)):
@@ -54,13 +40,11 @@ for i in range(0, len(null_count_list)):
         good_columns.append(i)
 
 
-# In[8]:
 
 
 great_columns = [annual_df.columns[i] for i in good_columns]
 
 
-# In[9]:
 
 
 great_columns.append('rea')
@@ -115,7 +99,6 @@ feature_columns = [item for item in permuted_annual_df_no_strings.columns if ite
 
 
 from pyspark.ml.classification import MultilayerPerceptronClassifier
-from pyspark.ml.evaluation import MulticlassClassificationEvaluator
 
 from pyspark.ml.feature import VectorAssembler
 
@@ -286,8 +269,7 @@ result = np.vstack(features_np_flat)
 
 
 # For a single-input model with 2 classes (binary classification):
-from keras.models import Model
-from keras.layers import Input, Dense
+from keras.layers import Dense
 from keras.models import Sequential
 model = Sequential()
 model.add(Dense(18, activation='relu', input_dim=9))
