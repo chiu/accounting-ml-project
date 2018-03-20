@@ -75,7 +75,7 @@ An example for computing correlation matrix.
 Run with:
   bin/spark-submit examples/src/main/python/ml/correlation_example.py
 """
-from __future__ import print_function
+# from __future__ import print_function
 
 from pyspark.ml.stat import Correlation
 df = output
