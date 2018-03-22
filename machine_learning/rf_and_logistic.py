@@ -5,7 +5,8 @@ from pyspark.sql.functions import isnan, when, count, col
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.feature import StringIndexer
 from pyspark.ml.classification import RandomForestClassifier, LogisticRegression
-from pyspark.ml.evaluation import BinaryClassificationEvaluator
+from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator
+from pyspark.mllib.evaluation import MulticlassMetrics
 
 spark = SparkSession.builder.appName('733').getOrCreate()
 
@@ -47,7 +48,6 @@ assembler = VectorAssembler(inputCols=feature_columns, outputCol="features")
 final_df = assembler.transform(nwdf_no_strings)
 final_final_df = final_df.drop(*feature_columns)
 
-final_final_df.withColumn('boolean_label', final_final_df.rea != 0)
 final_final_df = final_final_df.withColumn('boolean_label', final_final_df.rea != 0)
 
 print('Class distribution: ', final_final_df.groupBy('boolean_label').count().show())
@@ -56,12 +56,14 @@ final_final_df = final_final_df.withColumn('label', final_final_df.boolean_label
 final_final_df = final_final_df.drop('rea').drop('boolean_label')
 print(final_final_df.show())
 
+# String indexing not required
 stringIndexer = StringIndexer(inputCol="label", outputCol="indexed")
 si_model = stringIndexer.fit(final_final_df)
 td = si_model.transform(final_final_df)
 
-# Binary class classification thus using BinaryClassificationEvaluator
-evaluator = BinaryClassificationEvaluator()
+# Evaluators
+evaluator = MulticlassClassificationEvaluator(metricName = 'accuracy')
+eval = BinaryClassificationEvaluator()
 
 # RandomForest classifier
 rf = RandomForestClassifier(numTrees=100, maxDepth=16, labelCol="indexed", seed=42)
@@ -73,13 +75,24 @@ print('Accuracy on training data: ', evaluator.evaluate(result))
 train, test = final_final_df.randomSplit([0.7, 0.3], seed=12345)
 
 rf = RandomForestClassifier(numTrees=100, maxDepth=16, labelCol="label", seed=42)
+print('Training RandomForest model on training set. \n Model parameters: {}'.format(rf._paramMap))
 trained_model = rf.fit(train)
 res = trained_model.transform(test)
+metrics = MulticlassMetrics(res.select(['label', 'prediction']).rdd)
 print('Accuracy on test set: ', evaluator.evaluate(res))
+print('Precision on test data: ', metrics.precision())
+print('Recall on test data: ', metrics.recall())
+print('F1 Score on test data: ', metrics.fMeasure())
+print('Area under ROC curve: ', eval.evaluate(res))
 
 # Logistic regression
+print('Training LogisticRegression model on training set.')
 logistic = LogisticRegression(regParam=0.1, labelCol="label")
 trained_model = logistic.fit(train)
 res = trained_model.transform(test)
+metrics = MulticlassMetrics(res.select(['label', 'prediction']).rdd)
 print('Accuracy on test set: ', evaluator.evaluate(res))
-
+print('Precision on test data: ', metrics.precision())
+print('Recall on test data: ', metrics.recall())
+print('F1 Score on test data: ', metrics.fMeasure())
+print('Area under ROC curve: ', eval.evaluate(res))
