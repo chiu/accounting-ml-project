@@ -8,6 +8,7 @@ from pyspark.ml.feature import VectorAssembler
 from pyspark.sql.types import IntegerType
 
 from pyspark.ml import clustering
+from pyspark.ml.evaluation import ClusteringEvaluator
 
 spark = SparkSession.builder.appName('733').getOrCreate()
 
@@ -69,5 +70,10 @@ clustering_input = final_final_df.select(final_final_df.features)
 kmeans = clustering.KMeans(k=2)
 clst_model = kmeans.fit(clustering_input)
 transformed = clst_model.transform(final_final_df)
+
+# Evaluate clustering by computing Silhouette score
+evaluator = ClusteringEvaluator()
+silhouette = evaluator.evaluate(transformed)
+print("Silhouette with squared euclidean distance = " + str(silhouette))
 
 transformed.write.parquet('/user/vcs/clustering_output_parquet')
