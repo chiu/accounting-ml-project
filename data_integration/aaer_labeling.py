@@ -37,11 +37,11 @@ final_to_keep = final_joined.select([c for c in final_joined.columns if c in ls]
 
 # Writing the joinned csv / parquet to hdfs
 try:
-    final_joined.coalesce(1).write.csv('/user/vcs/integrated_dataset_with_labels')
+    final_to_keep.coalesce(1).write.csv('/user/vcs/integrated_dataset_with_labels')
 except:
     pass
 
 try:
-    final_joined.write.parquet('annual_integrated_dataset_with_labels.parquet')
+    final_to_keep.write.parquet('annual_integrated_dataset_with_labels.parquet')
 except:
     pass
