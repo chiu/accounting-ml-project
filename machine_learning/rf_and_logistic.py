@@ -11,7 +11,9 @@ from pyspark.mllib.evaluation import MulticlassMetrics
 spark = SparkSession.builder.appName('733').getOrCreate()
 
 # Using the integrated file to start working on
-integrated_df = spark.read.parquet('/user/vcs/annual_integrated_dataset_v2.parquet')
+integrated_df = spark.read.parquet('/user/vcs/annual_integrated_dataset_with_labels_ibes_fix_v2.parquet')
+#spark.read.parquet('/user/vcs/annual_integrated_dataset_v2.parquet')
+
 
 # Using nullcounts to filter columns to keep
 nullcounts = integrated_df.select([count(when(isnan(c) | col(c).isNull(), c)).alias(c) for c in integrated_df.columns])
@@ -48,13 +50,13 @@ assembler = VectorAssembler(inputCols=feature_columns, outputCol="features")
 final_df = assembler.transform(nwdf_no_strings)
 final_final_df = final_df.drop(*feature_columns)
 
-final_final_df = final_final_df.withColumn('boolean_label', final_final_df.rea != 0)
+# final_final_df = final_final_df.withColumn('boolean_label', final_final_df.rea != 0)
 
-print('Class distribution: ', final_final_df.groupBy('boolean_label').count().show())
+# print('Class distribution: ', final_final_df.groupBy('boolean_label').count().show())
 
-final_final_df = final_final_df.withColumn('label', final_final_df.boolean_label.cast('float'))
-final_final_df = final_final_df.drop('rea').drop('boolean_label')
-print(final_final_df.show())
+# final_final_df = final_final_df.withColumn('label', final_final_df.boolean_label.cast('float'))
+# final_final_df = final_final_df.drop('rea').drop('boolean_label')
+# print(final_final_df.show())
 
 # String indexing not required
 stringIndexer = StringIndexer(inputCol="label", outputCol="indexed")

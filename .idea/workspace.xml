@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d3f3d8d1-12fd-4729-abea-dbf2de172003" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_integration/aaer_labeling.py" afterPath="$PROJECT_DIR$/data_integration/aaer_labeling.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/machine_learning/rf_and_logistic.py" afterPath="$PROJECT_DIR$/machine_learning/rf_and_logistic.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,18 +14,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="one_hot_encoding_experiment.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experimental/one_hot_encoding_experiment.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#59#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="data_integration.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_integration/data_integration.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -73,8 +61,8 @@
       <file leaf-file-name="aaer_labeling.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data_integration/aaer_labeling.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
-              <caret line="69" column="11" lean-forward="false" selection-start-line="69" selection-start-column="11" selection-end-line="69" selection-end-column="11" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -86,6 +74,15 @@
             <state relative-caret-position="225">
               <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="misstatement_detection-Copy15.ipynb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/machine_learning/misstatement_detection-Copy15.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="0" />
             </state>
           </provider>
         </entry>
@@ -102,18 +99,20 @@
       <file leaf-file-name="rf_and_logistic.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/machine_learning/rf_and_logistic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="669">
-              <caret line="54" column="94" lean-forward="false" selection-start-line="54" selection-start-column="80" selection-end-line="54" selection-end-column="94" />
-              <folding />
+            <state relative-caret-position="483">
+              <caret line="83" column="56" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+              <folding>
+                <element signature="e#10#46#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="corr_matrix_plot_2-Copy1 (1).ipynb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eda/corr_matrix_plot_2-Copy1 (1).ipynb">
+      <file leaf-file-name="logistic_balancing_weights.ipynb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/machine_learning/logistic_balancing_weights.ipynb">
           <provider selected="true" editor-type-id="ipnb-editor">
             <state>
-              <selected id="1" />
+              <selected id="0" />
             </state>
           </provider>
         </entry>
@@ -150,6 +149,7 @@
         <option value="$PROJECT_DIR$/data_integration/data_integration.py" />
         <option value="$PROJECT_DIR$/machine_learning/nn-example.ipynb" />
         <option value="$PROJECT_DIR$/data_integration/aaer_labeling.py" />
+        <option value="$PROJECT_DIR$/machine_learning/rf_and_logistic.py" />
       </list>
     </option>
   </component>
@@ -342,17 +342,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/experimental/one_hot_encoding_experiment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/load_compustat.py" />
     <entry file="file://$PROJECT_DIR$/load_integrated_data.py" />
     <entry file="file://$PROJECT_DIR$/misstatement_detection-Copy15.py" />
     <entry file="file://$PROJECT_DIR$/annual_compustat_null_count.csv" />
@@ -436,7 +425,7 @@
         <state relative-caret-position="798">
           <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#0#36#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -458,22 +447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/machine_learning/rf_and_logistic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="669">
-          <caret line="54" column="94" lean-forward="false" selection-start-line="54" selection-start-column="80" selection-end-line="54" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/machine_learning/nn_integrated.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_integration/load_compustat.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -489,13 +462,6 @@
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/machine_learning/nn-example.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
         </state>
       </provider>
     </entry>
@@ -517,10 +483,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/machine_learning/misstatement_detection-Copy15.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/machine_learning/nn_integrated.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/machine_learning/rf_and_logistic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="83" column="56" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding>
+            <element signature="e#10#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/machine_learning/nn-example.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/machine_learning/logistic_balancing_weights.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data_integration/aaer_labeling.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="69" column="11" lean-forward="false" selection-start-line="69" selection-start-column="11" selection-end-line="69" selection-end-column="11" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="16" />
           <folding />
         </state>
       </provider>
