@@ -71,6 +71,17 @@ kmeans = clustering.KMeans(k=2)
 clst_model = kmeans.fit(clustering_input)
 transformed = clst_model.transform(final_final_df)
 
+# Please follow the following steps to perform normalisation before doing clustering
+from pyspark.ml.feature import Normalize
+
+normalizer = Normalizer(inputCol="features", outputCol="normFeatures", p=1.0)
+l1NormData = normalizer.transform(final_final_df)
+
+kmeans = clustering.KMeans(k=2, featuresCol='normFeatures')
+clst_model = kmeans.fit(clustering_input)
+transformed = clst_model.transform(l1NormData)
+
+
 # Evaluate clustering by computing Silhouette score
 evaluator = ClusteringEvaluator()
 silhouette = evaluator.evaluate(transformed)
