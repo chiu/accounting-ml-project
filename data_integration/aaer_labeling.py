@@ -1,3 +1,8 @@
+import os
+os.environ['SPARK_HOME']='/home/envmodules/lib/spark-2.2.0-bin-hadoop2.7/'
+import findspark
+findspark.init()
+
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import udf
 from pyspark.sql.types import DoubleType
@@ -12,12 +17,26 @@ ls = ['CONM', 'ACCHG', 'ACO', 'ACOMINC', 'ACQCSHI', 'ACQGDWL', 'ACQINTAN', 'ACQL
 
 ls = [x.lower() for x in ls]
 
+ls.append('eps_avg_ibes')
+
 annual_filtered = annual_compustat.select([c for c in annual_compustat.columns if c in ls])
 
 cond = [dgls['YEARA'] == annual_filtered['fyear'], dgls['COMPUSTAT IDENTIFIER'] == annual_filtered['conm']]
 
 annual_joined = annual_filtered.join(dgls, cond,'left')
-final_joined = annual_joined.join(ibes_complete, ibes_complete['OFTIC'] == annual_joined['tic'], 'left')
+
+ibes_complete = ibes_complete.withColumn('ibes_filing_month_day', ibes_complete.FPEDATS[5:8])
+
+ibes_complete = ibes_complete.withColumn('ibes_filing_year', ibes_complete.FPEDATS[1:4])
+
+ibes_complete = ibes_complete.filter(ibes_complete.MEASURE=='EPS')
+
+ibes_complete.createOrReplaceTempView("ibes")
+sqlDF = spark.sql("SELECT OFTIC, ibes_filing_year, AVG(VALUE) as eps_avg_ibes FROM ibes GROUP BY OFTIC, ibes_filing_year") #GROUP BY OFTIC ORDER BY FPEDATS DESC LIMIT 1")
+sqlDF.show()
+ibes_complete = sqlDF
+
+final_joined = annual_joined.join(ibes_complete, on = [ibes_complete['OFTIC'] == annual_joined['tic'], ibes_complete['ibes_filing_year'] == annual_joined['fyear']], how = 'left_outer')
 
 def createFlag(yeara):
 	if yeara is None:
@@ -32,16 +51,20 @@ final_joined = final_joined.withColumn('label', createLabelFlag(final_joined.YEA
 
 ls.append('label')
 final_joined = final_joined.drop('FYR').drop('COGS')
-final_to_keep = final_joined.select([c for c in final_joined.columns if c in ls])
+final_to_keep = final_joined.select([c for c in final_joined.columns if c in ls]).cache()
 
 
 # Writing the joinned csv / parquet to hdfs
 try:
-    final_to_keep.coalesce(1).write.csv('/user/vcs/integrated_dataset_with_labels')
+    final_to_keep.coalesce(1).write.csv('/user/vcs/integrated_dataset_with_labels_ibes_fix_v2')
 except:
     pass
 
 try:
-    final_to_keep.write.parquet('annual_integrated_dataset_with_labels.parquet')
+    final_to_keep.write.parquet('/user/vcs/annual_integrated_dataset_with_labels_ibes_fix_v2.parquet')
 except:
     pass
+
+df = spark.read.parquet('/user/vcs/annual_integrated_dataset_with_labels_ibes_fix_v2.parquet')
+
+# df.show()

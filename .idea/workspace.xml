@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d3f3d8d1-12fd-4729-abea-dbf2de172003" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_integration/data_integration.py" afterPath="$PROJECT_DIR$/data_integration/data_integration.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/machine_learning/nn-example.ipynb" afterPath="$PROJECT_DIR$/machine_learning/nn-example.ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_integration/aaer_labeling.py" afterPath="$PROJECT_DIR$/data_integration/aaer_labeling.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,8 +29,8 @@
       <file leaf-file-name="data_integration.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_integration/data_integration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-192">
-              <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+            <state relative-caret-position="1245">
+              <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -39,11 +38,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DGLS_sheets_integration.ipynb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_integration/DGLS_sheets_integration.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="0" />
+      <file leaf-file-name="attempt_1hot.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_integration/attempt_1hot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,6 +70,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="aaer_labeling.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data_integration/aaer_labeling.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="738">
+              <caret line="69" column="11" lean-forward="false" selection-start-line="69" selection-start-column="11" selection-end-line="69" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="nn_integrated.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/machine_learning/nn_integrated.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -80,23 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nn-example.ipynb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="nn-example.ipynb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/machine_learning/nn-example.ipynb">
           <provider selected="true" editor-type-id="ipnb-editor">
             <state>
               <selected id="0" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="correlation_matrix.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eda/correlation_matrix.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -151,6 +149,7 @@
         <option value="$PROJECT_DIR$/eda/correlation_matrix.py" />
         <option value="$PROJECT_DIR$/data_integration/data_integration.py" />
         <option value="$PROJECT_DIR$/machine_learning/nn-example.ipynb" />
+        <option value="$PROJECT_DIR$/data_integration/aaer_labeling.py" />
       </list>
     </option>
   </component>
@@ -343,7 +342,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data_integration.py" />
     <entry file="file://$PROJECT_DIR$/experimental/one_hot_encoding_experiment.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -418,13 +416,6 @@
     <entry file="file://$PROJECT_DIR$/load_parquet.py" />
     <entry file="file://$PROJECT_DIR$/misstatement_detection-Copy15.py" />
     <entry file="file://$PROJECT_DIR$/data_integration.py" />
-    <entry file="file://$PROJECT_DIR$/data_integration/attempt_1hot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/machine_learning/misstatement_detection-Copy15.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -433,38 +424,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_integration/data_integration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-192">
-          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_integration/DGLS_sheets_integration.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_integration/load_compustat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_integration/load_integrated_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -511,10 +474,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data_integration/load_compustat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_integration/load_integrated_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/machine_learning/nn-example.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_integration/data_integration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1245">
+          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_integration/attempt_1hot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_integration/aaer_labeling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="69" column="11" lean-forward="false" selection-start-line="69" selection-start-column="11" selection-end-line="69" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
