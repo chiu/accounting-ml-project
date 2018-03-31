@@ -60,15 +60,15 @@ print(final_joined.schema.names)
 print(set(final_joined.schema.names))
 
 # Writing the joinned csv to hdfs
-try:
-    final_joined.coalesce(1).write.csv('/user/vcs/integrated_dataset_v2')
-except:
-    pass
-
-try:
-    final_joined.write.parquet('annual_integrated_dataset_v2.parquet')
-except:
-    pass
+# try:
+#     final_joined.coalesce(1).write.csv('/user/vcs/integrated_dataset_v2')
+# except:
+#     pass
+#
+# try:
+#     final_joined.write.parquet('annual_integrated_dataset_v2.parquet')
+# except:
+#     pass
 
 
 print('v5 done')
