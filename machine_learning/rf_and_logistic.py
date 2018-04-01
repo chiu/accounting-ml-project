@@ -1,8 +1,8 @@
-# coding: utf-8
-
 # import os
-# os.environ['SPARK_HOME']='/home/envmodules/lib/spark-2.2.0-bin-hadoop2.7/'
+#
+# os.environ['SPARK_HOME'] = '/home/envmodules/lib/spark-2.2.0-bin-hadoop2.7/'
 # import findspark
+#
 # findspark.init()
 
 from pyspark.ml.classification import RandomForestClassifier, LogisticRegression
@@ -13,10 +13,13 @@ from pyspark.mllib.evaluation import MulticlassMetrics
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import isnan, when, count, col
 
+import pandas as pd
+
 spark = SparkSession.builder.appName('733').getOrCreate()
 
 # Using the integrated file to start working on
 integrated_df = spark.read.parquet('/user/vcs/annual_integrated_dataset_with_labels_ibes_fix_v2.parquet').cache()
+
 
 def find_performance_metrics(res, model_used):
     res = res.withColumn('correct', res.label == res.prediction)
@@ -40,11 +43,19 @@ def find_performance_metrics(res, model_used):
     new_all_predicted_negative_df = res.filter(res.prediction == 0.0)
     non_misstatement_precision = true_negative_df.count() / new_all_predicted_negative_df.count()
 
+    d = {'model_used': model_used, 'accuracy': accuracy, \
+         'misstatement_precision': misstatement_precision, \
+         'misstatement_recall': misstatement_recall}
+    df = pd.DataFrame(data=d, index=[0])
+    file_name = "performance_metrics" + "".join(model_used.split()) + ".csv"
+    df.to_csv(file_name, encoding='utf-8')
+
     print("Using {}".format(model_used))
     print('accuracy is {}'.format(accuracy))
     print('misstatement_precision is {}, misstatement recall is {}'.format(misstatement_precision, misstatement_recall))
     print('non_misstatement_precision is {}, non_misstatement recall is {}'.format(non_misstatement_precision,
                                                                                    non_misstatement_recall))
+
 
 # Downsampling:
 misstated_df = integrated_df.filter(integrated_df.label == 1.0)
@@ -56,7 +67,6 @@ integrated_df = misstated_df.union(non_misstated_df).cache()
 nullcounts = integrated_df.select([count(when(isnan(c) | col(c).isNull(), c)).alias(c) for c in integrated_df.columns])
 nc = list(nullcounts.first())
 
-# Extracting out an industrial segment and modelling on it instead of the whole dataset
 # Services-packaged software category selection (from EDA)
 services_prepacked_software = integrated_df  # .filter(integrated_df.sic == '7372')
 print('Total records in integrated file: ', integrated_df.count())
@@ -121,7 +131,6 @@ print('Accuracy on test set: ', evaluator.evaluate(res))
 print('Area under ROC curve: ', eval.evaluate(res))
 find_performance_metrics(res, "random forest")
 
-
 # ---------------
 # Logistic regression:
 # ---------------
@@ -156,7 +165,6 @@ bestThreshold = fMeasure.where(fMeasure['F-Measure'] == maxFMeasure['max(F-Measu
 logistic.setThreshold(bestThreshold)
 print('best threshold is:' + str(bestThreshold))
 
-
 print("For Logistic regression:")
 trained_model = logistic.fit(train)
 res = trained_model.transform(test)
@@ -165,8 +173,6 @@ print('Accuracy on test set: ', evaluator.evaluate(res))
 print('Area under ROC curve: ', eval.evaluate(res))
 # find_performance_metrics(res, "logistic regression")
 find_performance_metrics(res, "logistic regression with best threshold")
-
-import pandas as pd
 
 df = pd.DataFrame(
     {'lr_coeff': trained_model.coefficients,
