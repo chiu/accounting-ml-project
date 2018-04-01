@@ -16,9 +16,9 @@ from pyspark.sql.functions import isnan, when, count, col
 spark = SparkSession.builder.appName('733').getOrCreate()
 
 # Using the integrated file to start working on
-integrated_df = spark.read.parquet('/user/vcs/annual_integrated_dataset_with_labels_ibes_fix_v2.parquet')
+integrated_df = spark.read.parquet('/user/vcs/annual_integrated_dataset_with_labels_ibes_fix_v2.parquet').cache()
 
-def find_performance_metrics(res):
+def find_performance_metrics(res, model_used):
     res = res.withColumn('correct', res.label == res.prediction)
 
     num_rows = res.count()
@@ -40,6 +40,7 @@ def find_performance_metrics(res):
     new_all_predicted_negative_df = res.filter(res.prediction == 0.0)
     non_misstatement_precision = true_negative_df.count() / new_all_predicted_negative_df.count()
 
+    print("Using {}".format(model_used))
     print('accuracy is {}'.format(accuracy))
     print('misstatement_precision is {}, misstatement recall is {}'.format(misstatement_precision, misstatement_recall))
     print('non_misstatement_precision is {}, non_misstatement recall is {}'.format(non_misstatement_precision,
@@ -104,7 +105,8 @@ print('Accuracy on training data: ', evaluator.evaluate(result))
 
 # Train test split for model evaluation
 train, test = final_final_df.randomSplit([0.7, 0.3], seed=12345)
-
+train.cache()
+test.cache()
 
 # ---------------
 # Random Forest:
@@ -116,13 +118,8 @@ trained_model = rf.fit(train)
 res = trained_model.transform(test)
 metrics = MulticlassMetrics(res.select(['label', 'prediction']).rdd)
 print('Accuracy on test set: ', evaluator.evaluate(res))
-# print('Precision on test data: ', metrics.precision())
-# print('Recall on test data: ', metrics.recall())
-# print('F1 Score on test data: ', metrics.fMeasure())
 print('Area under ROC curve: ', eval.evaluate(res))
-
-print("For random forest:")
-find_performance_metrics(res)
+find_performance_metrics(res, "random forest")
 
 
 # ---------------
@@ -135,6 +132,7 @@ res = trained_model.transform(test)
 metrics = MulticlassMetrics(res.select(['label', 'prediction']).rdd)
 print('Accuracy on test set: ', evaluator.evaluate(res))
 print('Area under ROC curve: ', eval.evaluate(res))
+find_performance_metrics(res, "logistic regression")
 
 # Extract the summary from the returned LogisticRegressionModel instance trained
 # in the earlier example
@@ -156,13 +154,17 @@ maxFMeasure = fMeasure.groupBy().max('F-Measure').select('max(F-Measure)').head(
 bestThreshold = fMeasure.where(fMeasure['F-Measure'] == maxFMeasure['max(F-Measure)']).select('threshold').head()[
     'threshold']
 logistic.setThreshold(bestThreshold)
-
-res = trained_model.transform(test)
-
 print('best threshold is:' + str(bestThreshold))
 
+
 print("For Logistic regression:")
-find_performance_metrics(res)
+trained_model = logistic.fit(train)
+res = trained_model.transform(test)
+metrics = MulticlassMetrics(res.select(['label', 'prediction']).rdd)
+print('Accuracy on test set: ', evaluator.evaluate(res))
+print('Area under ROC curve: ', eval.evaluate(res))
+# find_performance_metrics(res, "logistic regression")
+find_performance_metrics(res, "logistic regression with best threshold")
 
 import pandas as pd
 
