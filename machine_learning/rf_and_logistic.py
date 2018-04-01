@@ -1,9 +1,9 @@
-# import os
-#
-# os.environ['SPARK_HOME'] = '/home/envmodules/lib/spark-2.2.0-bin-hadoop2.7/'
-# import findspark
-#
-# findspark.init()
+import os
+
+os.environ['SPARK_HOME'] = '/home/envmodules/lib/spark-2.2.0-bin-hadoop2.7/'
+import findspark
+
+findspark.init()
 
 from pyspark.ml.classification import RandomForestClassifier, LogisticRegression
 from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator
