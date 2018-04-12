@@ -198,7 +198,6 @@ paramGrid = ParamGridBuilder()\
     .addGrid(lr.threshold, [0.1, 0.2, 0.3, 0.4, 0.5, 1.0])\
     .build()
 
-# In this case the estimator is simply the linear regression.
 # A TrainValidationSplit requires an Estimator, a set of Estimator ParamMaps, and an Evaluator.
 tvs = TrainValidationSplit(estimator=lr,
                            estimatorParamMaps=paramGrid,
