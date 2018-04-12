@@ -10,6 +10,7 @@ from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClass
 from pyspark.ml.feature import StringIndexer
 from pyspark.ml.feature import VectorAssembler
 from pyspark.mllib.evaluation import MulticlassMetrics
+from pyspark.ml.tuning import ParamGridBuilder, TrainValidationSplit
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import isnan, when, count, col
 
@@ -182,3 +183,33 @@ df = pd.DataFrame(
 df['abs_lr_coeff'] = df['lr_coeff'].abs()
 df = df = df.sort_values('abs_lr_coeff', ascending=False).reset_index()
 print(df.head())
+
+# ------------------------------------------------------------
+# Code for making use of validation set for parameter tuning
+train, test = final_final_df.randomSplit([0.9, 0.1], seed=12345)
+
+lr = LogisticRegression()
+
+# We use a ParamGridBuilder to construct a grid of parameters to search over.
+# TrainValidationSplit will try all combinations of values and determine best model using
+# the evaluator.
+paramGrid = ParamGridBuilder()\
+    .addGrid(lr.regParam, [0.2, 0.1, 0.01]) \
+    .addGrid(lr.threshold, [0.1, 0.2, 0.3, 0.4, 0.5, 1.0])\
+    .build()
+
+# A TrainValidationSplit requires an Estimator, a set of Estimator ParamMaps, and an Evaluator.
+tvs = TrainValidationSplit(estimator=lr,
+                           estimatorParamMaps=paramGrid,
+                           evaluator=BinaryClassificationEvaluator(),
+                           # 80% of the data will be used for training, 20% for validation.
+                           trainRatio=0.8)
+
+# Run TrainValidationSplit, and choose the best set of parameters.
+model = tvs.fit(train)
+
+# Make predictions on test data. model is the model with combination of parameters
+# that performed best.
+model.transform(test)\
+    .select("features", "label", "prediction")\
+    .show()
