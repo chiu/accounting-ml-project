@@ -194,8 +194,8 @@ lr = LogisticRegression()
 # TrainValidationSplit will try all combinations of values and determine best model using
 # the evaluator.
 paramGrid = ParamGridBuilder()\
-    .addGrid(lr.regParam, [0.2, 0.1, 0.01]) \
-    .addGrid(lr.threshold, [0.1, 0.2, 0.3, 0.4, 0.5, 1.0])\
+    .addGrid(lr.regParam, [0.2, 0.15, 0.1, 0.01]) \
+    .addGrid(lr.threshold, [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.0])\
     .build()
 
 # A TrainValidationSplit requires an Estimator, a set of Estimator ParamMaps, and an Evaluator.
@@ -210,6 +210,23 @@ model = tvs.fit(train)
 
 # Make predictions on test data. model is the model with combination of parameters
 # that performed best.
-model.transform(test)\
-    .select("features", "label", "prediction")\
-    .show()
+res = model.transform(test)
+find_performance_metrics(res, 'logistic_with_validation')
+
+# ---------------------------------------------------------
+# For RandomForest
+rf = RandomForestClassifier()
+
+paramGrid = ParamGridBuilder()\
+    .addGrid(rf.numTrees, [50, 100, 150, 200]) \
+    .addGrid(rf.maxDepth, [4, 8, 12, 16, 18, 20])\
+    .build()
+    
+tvs = TrainValidationSplit(estimator=rf,
+                           estimatorParamMaps=paramGrid,
+                           evaluator=BinaryClassificationEvaluator(),
+                           # 80% of the data will be used for training, 20% for validation.
+                           trainRatio=0.8)
+model = tvs.fit(train)
+res = model.transform(test)
+find_performance_metrics(res, 'rf_with_validation')
