@@ -1,4 +1,4 @@
-# D.O.M.E. (Detection Of Misstatement Engine)
+# D.O.M.E. (Detection Of Misstatements Engine)
  
 D.O.M.E. is a data product which takes in financial statements and identifies whether the financial statements are misstated or not.
 
@@ -22,7 +22,10 @@ D.O.M.E. uses machine learning and big data analytics to classify any financial 
 * data_integration: code for integrating financial reports with AAER and IBES data. 
 * eda: code for heatmap, number of misstatements per industry plots. 
 * experimental: sandbox for code
-* machine_learning: location of the logistic regression and random forest code. 
+### machine_learning: location of the logistic regression and random forest code. Contains the following:
+#### rf_and_logistic.py
+#### clustering_kmeans.py
+
 * nullcount
 * poster: materials for poster
 * preprocessing: code for preprocessing
