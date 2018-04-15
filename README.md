@@ -26,6 +26,7 @@ Go to https://github.com/chiu/accounting-ml-project/blob/master/machine_learning
 
 ## Table of Contents:
 
+```
 .
 ├── LICENSE
 ├── README.md
@@ -127,6 +128,7 @@ Go to https://github.com/chiu/accounting-ml-project/blob/master/machine_learning
     ├── Detecting\ Misstatements\ v2.pptx
     ├── Detecting\ Misstatements.pptx
     └── random_forest_medium.png
+```
 
 ### data: 
 
