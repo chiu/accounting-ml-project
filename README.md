@@ -27,7 +27,7 @@ D.O.M.E. uses machine learning and big data analytics to classify any financial 
 #### rf_and_logistic.py
 #### clustering_kmeans.py
 
-* nullcount
+* nullcount: file containing the number of null observations for each feature attribute
 * poster: materials for poster
 * preprocessing: code for preprocessing
 * report: materials for report
