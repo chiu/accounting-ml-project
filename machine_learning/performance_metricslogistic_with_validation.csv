@@ -1,2 +1,2 @@
 ,accuracy,misstatement_precision,misstatement_recall,model_used
-0,0.5208333333333334,0.5122699386503068,0.9881656804733728,logistic_with_validation
+0,0.6011904761904762,0.9069767441860465,0.23076923076923078,logistic_with_validation
