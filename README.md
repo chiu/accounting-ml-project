@@ -26,11 +26,13 @@ D.O.M.E. uses machine learning and big data analytics to classify any financial 
     
    Contains the following:
    
-   `old_version_rf_and_logistic.ipynb` old version of random forest and logistic regression with results printed. 
+   `rf_and_logistic_notebook.ipynb` old version of random forest and logistic regression with results printed. 
 
   `rf_and_logistic.py` code for random forest and logistic regression
   
   `clustering_kmeans.py` code for doing kmeans clustering on pca components
+  
+  `old_version_rf_and_logistic.ipynb` old version of random forest and logistic regression with results printed. 
 
 * nullcount: file containing the number of null observations for each feature attribute
 * poster: materials for poster
