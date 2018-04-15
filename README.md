@@ -11,11 +11,12 @@ The following groups can benefit from our data product:
 D.O.M.E. uses machine learning and big data analytics to classify any financial statement as either misstated or not misstated with about 82% accuracy.
 
 ## How to Run:
-* Copy the file rf_and_logistic.py from:
+* Copy the file `rf_and_logistic.py` from:
 * https://github.com/chiu/accounting-ml-project/blob/master/machine_learning/rf_and_logistic.py
 * Copy code onto the SFU cluster.
 * Run the following command: 
-* spark-submit rf_and_logistic.py
+  `spark-submit rf_and_logistic.py`
+
 
 ## Table of Contents:
 * data: data from here has been emptied out, data can be found on SFU cluster under hdfs in /user/vcs/
