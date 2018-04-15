@@ -6,21 +6,20 @@
 -
 -The following can be benefited from our data product:
 -* Auditors can get a better idea about which corporations are more likely to missrepresent the fiscal outlook by filing misstatements.
--* Investers can be aware of misstatement risks before investing into any corporation
+-* Investors can be aware of misstatement risks before investing into any corporation
 -
 -## How it works?
--
 -VentureCaps uses machine learning and big data analytics to classify whether any financial statement is misstated or not with about 82% accuracy.
 
-Table of Contents:
+-## Table of Contents:
 
-data
-data_integration
-eda
-experimental
-machine_learning
-nullcount
-poster
-preprocessing
-report
-slides
+-data
+-data_integration
+-eda
+-experimental
+-machine_learning
+-nullcount
+-poster
+-preprocessing
+-report
+-slides
