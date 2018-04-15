@@ -14,8 +14,7 @@ D.O.M.E. uses machine learning and big data analytics to classify any financial 
 * Copy the file `rf_and_logistic.py` from:
 * https://github.com/chiu/accounting-ml-project/blob/master/machine_learning/rf_and_logistic.py
 * Copy code onto the SFU cluster.
-* Run the following command: 
-  `spark-submit rf_and_logistic.py`
+* Run the following command: `spark-submit rf_and_logistic.py`
 
 
 ## Table of Contents:
@@ -23,9 +22,13 @@ D.O.M.E. uses machine learning and big data analytics to classify any financial 
 * data_integration: code for integrating financial reports from CompuStat with AAER and IBES data. 
 * eda: code for heatmap, number of misstatements per industry plots. 
 * experimental: sandbox for code
-### machine_learning: location of the logistic regression and random forest code. Contains the following:
-#### rf_and_logistic.py
-#### clustering_kmeans.py
+* machine_learning: location of the logistic regression and random forest code. 
+    
+   Contains the following:
+
+  `rf_and_logistic.py` code for random forest and logistic regression
+  
+  `clustering_kmeans.py` code for doing kmeans clustering on pca components
 
 * nullcount: file containing the number of null observations for each feature attribute
 * poster: materials for poster
