@@ -18,11 +18,13 @@ D.O.M.E. uses machine learning and big data analytics to classify any financial 
 
 
 ## Table of Contents:
+
 ### data: 
 
-   data from here has been emptied out, data can be found on SFU cluster under hdfs in `/user/vcs/`
+    data from here has been emptied out, data can be found on SFU cluster under hdfs in `/user/vcs/`
 
-#### data_integration: 
+
+### data_integration: 
 
     code for integrating financial reports from CompuStat with AAER and IBES data.
 
@@ -34,7 +36,9 @@ D.O.M.E. uses machine learning and big data analytics to classify any financial 
     
  
  
-#### eda: code for heatmap, number of misstatements per industry plots. 
+### eda: 
+
+    code for heatmap, number of misstatements per industry plots. 
 
     `AAPL.png`			
     
@@ -60,27 +64,27 @@ D.O.M.E. uses machine learning and big data analytics to classify any financial 
 
 
 
-#### machine_learning: location of the logistic regression and random forest code. 
+### machine_learning: location of the logistic regression and random forest code. 
    
-   `rf_and_logistic_notebook.ipynb` new version of random forest and logistic regression with results printed. 
-
-  `rf_and_logistic.py` code for random forest and logistic regression
-  
-  `clustering_kmeans.py` code for doing kmeans clustering on pca components
-  
-  `old_version_rf_and_logistic.ipynb` old version of random forest and logistic regression with results printed. 
-
-
-#### experimental: sandbox for code
-
-#### obsolete: 
+    `rf_and_logistic_notebook.ipynb` new version of random forest and logistic regression with results printed. 
     
+    `rf_and_logistic.py` code for random forest and logistic regression
+    
+    `clustering_kmeans.py` code for doing kmeans clustering on pca components
+    
+    `old_version_rf_and_logistic.ipynb` old version of random forest and logistic regression with results printed. 
+
+
+### experimental: sandbox for code
+
+### obsolete: 
+
     `nullcount` folder containing the number of null observations for each feature attribute
     
     
-#### poster: materials for poster
-#### report: materials for report
-#### slides: materials for slides which were made for the video. 
+### poster: materials for poster
+### report: materials for report
+### slides: materials for slides which were made for the video. 
 
 
 
