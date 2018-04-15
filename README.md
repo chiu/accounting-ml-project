@@ -13,13 +13,13 @@ VentureCaps uses machine learning and big data analytics to classify whether any
 
 ## Table of Contents:
 
-data
-data_integration
-eda
-experimental
-machine_learning
-nullcount
-poster
-preprocessing
-report
-slides
+* data
+* data_integration: 
+* eda
+* experimental
+* machine_learning: location of the logistic regression and random forest code. 
+* nullcount
+* poster
+* preprocessing
+* report
+* slides
