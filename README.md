@@ -13,9 +13,9 @@ D.O.M.E. uses machine learning and big data analytics to classify any financial 
 
 ## Results
 
-    Go to  https://github.com/chiu/accounting-ml-project/blob/master/machine_learning/rf_and_logistic_notebook.ipynb
+Go to https://github.com/chiu/accounting-ml-project/blob/master/machine_learning/rf_and_logistic_notebook.ipynb
     
-    `rf_and_logistic_notebook.ipynb` new version of random forest and logistic regression with results printed. 
+`rf_and_logistic_notebook.ipynb` new version of random forest and logistic regression with results printed. 
 
 ## How to Run:
 * Copy the file `rf_and_logistic.py` from:
