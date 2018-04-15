@@ -19,9 +19,18 @@ D.O.M.E. uses machine learning and big data analytics to classify any financial 
 
 ## Table of Contents:
 * data: data from here has been emptied out, data can be found on SFU cluster under hdfs in `/user/vcs/`
-* data_integration: code for integrating financial reports from CompuStat with AAER and IBES data. 
+
+* data_integration: code for integrating financial reports from CompuStat with AAER and IBES data.
+
+    `data_integration.py`: merging of annual, aaer and ibes dataset. 
+
+    `aaer_labelling.py` contains custom udf function for labelling records as as misstatement or not misstatement. used for creating our class label. 
+    
+    `ibes_integration_fix-Copy1.ipynb` fix for bug involving joining annual with ibes which incorrect join conditions. 
+    
+ 
 * eda: code for heatmap, number of misstatements per industry plots. 
-* experimental: sandbox for code
+
 * machine_learning: location of the logistic regression and random forest code. 
     
    Contains the following:
@@ -34,11 +43,19 @@ D.O.M.E. uses machine learning and big data analytics to classify any financial 
   
   `old_version_rf_and_logistic.ipynb` old version of random forest and logistic regression with results printed. 
 
-* nullcount: file containing the number of null observations for each feature attribute
+
+* experimental: sandbox for code
+
+* obsolete: 
+    
+    nullcount: file containing the number of null observations for each feature attribute
+    
+    
+
 * poster: materials for poster
-* preprocessing: code for preprocessing
 * report: materials for report
 * slides: materials for slides which were made for the video. 
+
 
 
 
