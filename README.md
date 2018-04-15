@@ -20,7 +20,7 @@ D.O.M.E. uses machine learning and big data analytics to classify any financial 
 
 ## Table of Contents:
 * data: data from here has been emptied out, data can be found on SFU cluster under hdfs in `/user/vcs/`
-* data_integration: code for integrating financial reports with AAER and IBES data. 
+* data_integration: code for integrating financial reports from CompuStat with AAER and IBES data. 
 * eda: code for heatmap, number of misstatements per industry plots. 
 * experimental: sandbox for code
 ### machine_learning: location of the logistic regression and random forest code. Contains the following:
