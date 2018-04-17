@@ -1,4 +1,6 @@
 # D.O.M.E. (Detection Of Misstatements Engine)
+
+* Protect the corporate world from misstatements!
  
 D.O.M.E. is a data product which takes in financial statements and identifies whether the financial statements are misstated or not.
 
@@ -18,10 +20,9 @@ Go to https://github.com/chiu/accounting-ml-project/blob/master/machine_learning
 `rf_and_logistic_notebook.ipynb` new version of random forest and logistic regression with results printed. 
 
 ## How to Run:
-* Copy the file `rf_and_logistic.py` from:
-* https://github.com/chiu/accounting-ml-project/blob/master/machine_learning/rf_and_logistic.py
-* Copy code onto the SFU cluster.
-* Run the following command: `spark-submit rf_and_logistic.py`
+* Copy the file `rf_and_logistic.py` onto the SFU cluster from:
+* https://github.com/chiu/accounting-ml-project/blob/master/machine_learning/rf_and_logistic
+* Run the following command on the cluster: `spark-submit rf_and_logistic.py`
 
 
 ## File Dictionary:
@@ -34,15 +35,14 @@ data from here has been emptied out, data can be found on SFU cluster under hdfs
 
 ### data_integration: 
 
-code for integrating financial reports from CompuStat with AAER and IBES data.
+code for integrating financial reports from Compustat with AAER and IBES data.
 
-`data_integration.py`: merging of annual, aaer and ibes dataset. 
+`data_integration.py`: merging of annual Compustat, AAER and IBES dataset. 
 
 `aaer_labelling.py` contains custom udf function for labelling records as as misstatement or not misstatement. used for creating our class label. 
 
-`ibes_integration_fix-Copy1.ipynb` fix for bug involving joining annual with ibes which incorrect join conditions. 
+`ibes_integration_fix-Copy1.ipynb` fix for bug involving joining annual data with IBES with incorrect join conditions. 
     
- 
  
  
 ### eda: 
