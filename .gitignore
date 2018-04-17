@@ -1,3 +1,4 @@
+.DS_Store
 metastore_db/*
 .idea/workspace.xml
 .idea/*
