@@ -26,7 +26,6 @@ Go to https://github.com/chiu/accounting-ml-project/blob/master/machine_learning
 
 ## File Dictionary:
 
-`
 ### data: 
 
 data from here has been emptied out, data can be found on SFU cluster under hdfs in `/user/vcs/`
@@ -95,9 +94,12 @@ code for heatmap, number of misstatements per industry plots.
 `nullcount` folder containing the number of null observations for each feature attribute
 
 
-### poster: materials for poster
-### report: materials for report
-### slides: materials for slides which were made for the video. 
+### poster: 
+materials for poster
+### report: 
+materials for report
+### slides: 
+materials for slides which were made for the video. 
 
 
 ## Folder Contents:
