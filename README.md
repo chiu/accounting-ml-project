@@ -113,12 +113,10 @@ materials for slides which were made for the video.
 
 
 ## Folder Contents:
-
 ```
 .
 ├── LICENSE
 ├── README.md
-├── data
 ├── data_integration
 │   ├── DGLS_sheets_integration.ipynb
 │   ├── aaer_labeling.py
