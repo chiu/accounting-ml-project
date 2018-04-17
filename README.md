@@ -96,12 +96,15 @@ location of the logistic regression and random forest code.
 old code that contains previous iterations of current code. 
 
 `data_integration_obsolete`: old code for integration
+
 `machine_learning_obsolete`: old code for ML
-`nullcount`
-`preprocessing`
-`tableau_charts`
 
 `nullcount` folder containing the number of null observations for each feature attribute
+
+`preprocessing`
+
+`tableau_charts`
+
 
 
 ### poster: 
