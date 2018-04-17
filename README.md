@@ -24,14 +24,12 @@ Go to https://github.com/chiu/accounting-ml-project/blob/master/machine_learning
 * https://github.com/chiu/accounting-ml-project/blob/master/machine_learning/rf_and_logistic
 * Run the following command on the cluster: `spark-submit rf_and_logistic.py`
 
+## Data: 
+
+Data files for this app can be found on SFU cluster on HDFS in `/user/vcs/`
+
 
 ## File Dictionary:
-
-### data: 
-
-data from here has been emptied out, data can be found on SFU cluster under hdfs in `/user/vcs/`
-
-
 
 ### data_integration: 
 
