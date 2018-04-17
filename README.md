@@ -91,6 +91,8 @@ code for heatmap, number of misstatements per industry plots.
 
 ### obsolete: 
 
+old code that contains previous iterations of current code. 
+
 `nullcount` folder containing the number of null observations for each feature attribute
 
 
