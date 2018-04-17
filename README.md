@@ -74,7 +74,9 @@ code for heatmap, number of misstatements per industry plots.
 
 
 
-### machine_learning: location of the logistic regression and random forest code. 
+### machine_learning: 
+
+location of the logistic regression and random forest code. 
 
 `rf_and_logistic_notebook.ipynb` new version of random forest and logistic regression with results printed. 
 
@@ -92,6 +94,12 @@ code for heatmap, number of misstatements per industry plots.
 ### obsolete: 
 
 old code that contains previous iterations of current code. 
+
+`data_integration_obsolete`: old code for integration
+`machine_learning_obsolete`: old code for ML
+`nullcount`
+`preprocessing`
+`tableau_charts`
 
 `nullcount` folder containing the number of null observations for each feature attribute
 
